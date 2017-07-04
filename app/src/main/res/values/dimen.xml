@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standart_padding">16dp</dimen>
+    <dimen name="sub_title_text_size">20sp</dimen>
+    <dimen name="sub_title_margin_bottom">70dp</dimen>
+    <dimen name="search_description_text_size">22sp</dimen>
+    <dimen name="search_container_padding_bottom">40dp</dimen>
+    <dimen name="search_button_size">56dp</dimen>
+    <dimen name="search_button_margin_start">16dp</dimen>
+    <dimen name="book_title_text_size">18sp</dimen>
+    <dimen name="book_author_text_size">16sp</dimen>
+    <dimen name="book_rating_text_size">20sp</dimen>
+    <dimen name="book_rating_size">42sp</dimen>
+    <dimen name="search_problem_text_size">16sp</dimen>
+</resources>

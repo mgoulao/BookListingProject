@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mgoulao.booklistingproject.MainActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/search_container_padding_bottom"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search_books"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignStart="@+id/linearLayout"
+            android:layout_marginBottom="@dimen/sub_title_margin_bottom"
+            android:textSize="@dimen/sub_title_text_size"
+            android:textColor="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:id="@+id/linearLayout"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+            <EditText
+                android:id="@+id/search_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textColorHighlight="@color/white"
+                android:hint="@string/search"
+                android:inputType="textPersonName"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+            <ImageButton
+                android:id="@+id/search_books"
+                android:layout_width="@dimen/search_button_size"
+                android:layout_height="@dimen/search_button_size"
+                android:layout_marginStart="@dimen/search_button_margin_start"
+                android:src="@drawable/ic_search_24dp"
+                android:background="@drawable/circle_button"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/standart_padding"
+        android:text="@string/search_description"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/search_description_text_size"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

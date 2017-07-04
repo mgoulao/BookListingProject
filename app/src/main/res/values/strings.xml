@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Book Listing Project</string>
+
+    <string name="search">Search</string>
+    <string name="search_books">Search For Books</string>
+    <string name="search_description">Here you can find your favorite books and many others.</string>
+
+    <string name="offline">You are Offline</string>
+    <string name="no_results">No Results</string>
+
+</resources>
