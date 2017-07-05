@@ -51,11 +51,8 @@ public class QueryUtils {
             Log.e(MG_TAG, "Error closing input stream", e);
         }
 
-        // Extract relevant fields from the JSON response and create an {@link Event} object
-        ArrayList<Book> bookList = extractBooks(jsonResponse);
-
-        // Return the {@link Event}
-        return bookList;
+        // Return the {@link Event}, value extracted from the JSON response
+        return extractBooks(jsonResponse);
     }
 
     /**
@@ -64,7 +61,7 @@ public class QueryUtils {
      */
     public static ArrayList<Book> extractBooks(String jsonResponse) {
 
-        // Create an empty ArrayList that we can start adding earthquakes to
+        // Create an empty ArrayList that we can start adding books to
         ArrayList<Book> booksList = new ArrayList<>();
 
         // Try to parse the jsonResponse. If there's a problem with the way the JSON
@@ -73,14 +70,13 @@ public class QueryUtils {
         try {
 
             // Parse the response given by the jsonResponse and
-            // build up a list of Earthquake objects with the corresponding data.
-            Log.d("Jsonresponse", jsonResponse);
+            // build up a list of Book objects with the corresponding data.
             JSONObject jsonBook = new JSONObject(jsonResponse);
 
             // Getting JSON Array node
             JSONArray items = jsonBook.getJSONArray("items");
-            // looping through all the earthquakes
-            Log.d(MG_TAG, "items size: " + items.length());
+
+            // looping through all the books
             for (int z = 0; z < items.length(); z++) {
                 Log.d(MG_TAG, "z: " + z);
                 String title = "";
@@ -89,16 +85,15 @@ public class QueryUtils {
                 Double rating = 0.0;
 
                 JSONObject book = items.getJSONObject(z);
-                Log.d(MG_TAG, "book: " + book);
+
                 // get current book volume info
                 JSONObject volumeInfo = book.getJSONObject(VOLUME_INFO);
                 title = volumeInfo.getString(TITLE);
 
-
                 // get all the authors from the book volume info
                 if (volumeInfo.has(AUTHORS)) {
                     JSONArray authorsArray = volumeInfo.getJSONArray(AUTHORS);
-
+                    // looping through all the authors
                     for (int i = 0; i < authorsArray.length(); i++) {
                         if (i == 0) {
                             authors = authorsArray.getString(i);
@@ -118,8 +113,6 @@ public class QueryUtils {
                         thumbnail = imageLinks.getString(SMALL_THUMBNAILS);
                     }
                 }
-
-                Log.d(MG_TAG, "book title: " + title);
 
                 booksList.add(new Book(thumbnail, title, authors, rating));
             }

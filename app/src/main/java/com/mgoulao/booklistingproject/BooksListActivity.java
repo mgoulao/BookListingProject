@@ -24,6 +24,8 @@ public class BooksListActivity extends AppCompatActivity implements LoaderManage
     ListView listView;
     ProgressBar progressBar;
     TextView offlineTextView , cantFind;
+    BookAdapter bookAdapter;
+    ArrayList<Book> bookList = new ArrayList<>();
     /**
      * Constant value for the book loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
@@ -47,6 +49,10 @@ public class BooksListActivity extends AppCompatActivity implements LoaderManage
         offlineTextView = (TextView) findViewById(R.id.offline);
         cantFind = (TextView) findViewById(R.id.cant_find);
 
+        bookAdapter = new BookAdapter(this, bookList);
+        listView.setAdapter(bookAdapter);
+
+        // Check the Connectivity
         ConnectivityManager cm =
                 (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -72,14 +78,13 @@ public class BooksListActivity extends AppCompatActivity implements LoaderManage
     }
 
     @Override
-    public void onLoadFinished(Loader<ArrayList<Book>> loader, ArrayList<Book> data) {
-        Log.d(MG_TAG, "onLoadFinished()");
+    public void onLoadFinished(Loader<ArrayList<Book>> loader, ArrayList<Book> books) {
         progressBar.setVisibility(View.INVISIBLE);
-        Log.d(MG_TAG, "Data : " + data);
-        BookAdapter bookAdapter = new BookAdapter(this, data);
 
-        if (bookAdapter != null && !bookAdapter.isEmpty()) {
-            listView.setAdapter(bookAdapter);
+        bookAdapter.clear();
+
+        if (books != null && !books.isEmpty()) {
+            bookAdapter.addAll(books);
         } else {
             cantFind.setText(getResources().getString(R.string.no_results));
         }
@@ -87,6 +92,6 @@ public class BooksListActivity extends AppCompatActivity implements LoaderManage
 
     @Override
     public void onLoaderReset(Loader<ArrayList<Book>> loader) {
-
+        bookAdapter.clear();
     }
 }

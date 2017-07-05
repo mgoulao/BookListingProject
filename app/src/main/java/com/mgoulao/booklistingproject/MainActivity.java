@@ -26,11 +26,9 @@ public class MainActivity extends AppCompatActivity {
             Log.e("MainActivity", "Problem setting the Actoin Bar elevation", e);
         }
 
-
         ImageButton searchBooks = (ImageButton) findViewById(R.id.search_books);
         searchBox = (EditText) findViewById(R.id.search_box);
 
-        Log.d(MG_TAG, searchBox.getText().toString());
         /*
         * Listener for the Search button
         * Checks if the EditText is not empty and starts the BooksListActivity
@@ -45,21 +43,14 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("QUERY", searchQuery);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(MainActivity.this, "Please fill the search box" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please fill the search box", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
     public void isEmpty(String key) {
-        if (key.equals("")) {
-            filled = false;
-        } else {
-            filled = true;
-        }
-
+        filled = !key.equals("");
     }
-
-
 
 }

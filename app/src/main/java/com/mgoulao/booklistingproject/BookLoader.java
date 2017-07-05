@@ -2,12 +2,11 @@ package com.mgoulao.booklistingproject;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
-import android.util.Log;
 
 import java.util.ArrayList;
 
 /**
- * Created by msilv on 7/4/2017.
+ * Created by Manuel Goulao on 7/4/2017.
  */
 
 public class BookLoader extends AsyncTaskLoader<ArrayList<Book>> {
@@ -17,7 +16,7 @@ public class BookLoader extends AsyncTaskLoader<ArrayList<Book>> {
 
     public BookLoader(Context context, String url) {
         super(context);
-        Log.d(MG_TAG, "BookLoader()");
+
         mUrl = url;
     }
 
@@ -28,12 +27,10 @@ public class BookLoader extends AsyncTaskLoader<ArrayList<Book>> {
 
     @Override
     public ArrayList<Book> loadInBackground() {
-        Log.d(MG_TAG, "loadInBackground()");
         if (mUrl == null) {
             return null;
         }
 
-        ArrayList<Book> bookList = QueryUtils.fetchBookData(mUrl);
-        return bookList;
+        return QueryUtils.fetchBookData(mUrl);
     }
 }

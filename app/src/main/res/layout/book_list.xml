@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:padding="@dimen/standart_padding"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="@dimen/standart_padding">
+
     <ImageView
-        android:layout_gravity="center_vertical"
-        android:layout_width="60dp"
-        android:layout_height="90dp"
-        android:id="@+id/thumbnail"/>
+        android:id="@+id/thumbnail"
+        android:layout_width="@dimen/list_book_thumb_width"
+        android:layout_height="@dimen/list_book_thumb_height"
+        android:layout_gravity="center_vertical" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/list_info_margin_start"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -27,8 +27,8 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:textAllCaps="true"
-            android:textSize="@dimen/book_title_text_size"
             android:textColor="@color/text_black"
+            android:textSize="@dimen/book_title_text_size"
             tools:text="Title" />
 
         <TextView
@@ -38,28 +38,27 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:textSize="@dimen/book_author_text_size"
-            tools:text="Author"/>
+            tools:text="Author" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/list_info_margin_start"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/rating"
             android:layout_width="@dimen/book_rating_size"
             android:layout_height="@dimen/book_rating_size"
             android:layout_gravity="center_vertical"
+            android:background="@drawable/rating_circle"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
-            android:background="@drawable/rating_circle"
-            android:textSize="@dimen/book_rating_text_size"
             android:textColor="@android:color/white"
+            android:textSize="@dimen/book_rating_text_size"
             tools:text="3.0" />
-
 
     </LinearLayout>
 </LinearLayout>
